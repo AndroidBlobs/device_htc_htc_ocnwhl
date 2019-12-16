@@ -1,0 +1,12 @@
+on early-boot
+	exec /vendor/bin/sh /vendor/bin/init.htc.fp.sh
+
+on post-fs-data
+	# For MFG socket
+	mkdir /data/fpc 0770 system system
+	mkdir /data/idex 0770 system system
+
+# goodix fingerprint
+on fs
+    chown system system /dev/goodix_fp
+
